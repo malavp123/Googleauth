@@ -46,7 +46,7 @@ func handleCallBack(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 		return
 	}
-	token, err := googleOauthConfig.Exchange(oauth2.NoContext, r.FormValue("Code"))
+	token, err := googleOauthConfig.Exchange(oauth2.NoContext, r.FormValue("code"))
 	if err != nil {
 		fmt.Printf("Could not get token %s \n", err.Error())
 		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
